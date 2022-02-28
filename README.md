@@ -1,5 +1,46 @@
 # Market
 
+## Setup Instructions (for Instructors)
+
+* Clone this repo
+* remove the turingschool remote
+* remove the git history and initialize a new git repo (`rm -rf .git && git init`)
+* commit the empty item.rb, vendor.rb, market.rb, test/.keep and the `##Instructions` from the README, for students.
+* create a branch called `spec`
+* commit the Gemfile, spec directory, and, optionally, the remainder of the README
+* Create a new repo on turingschool-examples called `market_<cohort number>`
+* Add that remote
+* Push up both branches
+
+
+### Spec Harness Instructions
+
+In order to run the spec harness, first create a directory with a `students.txt` file.
+
+In `students.txt`, put a list of your students Github handles.  For example:
+
+```
+aziobrow
+dionew1
+memcmahon
+s-espinosa
+```
+
+From the command line, run the following script, replacing `<repository_name` with the name of the challenge repo:
+
+```
+for i in `cat students.txt`; do
+  git clone git@github.com:$i/<repository_name> $i
+  cd $i
+  git pull origin spec # this will cause a merge commit message
+  rspec
+  echo
+  echo
+  read -p 'Press Enter to continue'
+  cd ..
+done
+```
+
 ## Instructions
 
 * Fork this Repository
