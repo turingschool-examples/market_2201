@@ -21,5 +21,12 @@ attr_reader :name, :vendors
     @vendors.select {|vendor| vendor.check_stock(item) > 0}
   end
 
+  def total_inventory
+    tot_inventory = Hash.new
+    @vendors.each do |vendor|
+      tot_inventory[vendor] = vendor.inventory
+    end
+    tot_inventory
+  end
 
 end
