@@ -34,7 +34,7 @@ describe Vendor do
       expect(vendor.check_stock(item2)).to eq(12)
     end
 
-    xit "inventory returns a hash with Items matched to # in stock" do
+    it "inventory returns a hash with Items matched to # in stock" do
       expect(vendor.inventory).to eq({item1 => 55, item2 => 12})
     end
   end
