@@ -13,4 +13,7 @@ class Vendor
     @check_stock
   end
 
+  def stock(item, inventory)
+    
+  end
 end
