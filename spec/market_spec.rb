@@ -23,4 +23,11 @@ RSpec.describe Market do
   it "can return attributes" do
     expect(@market.name).to eq('South Pearl Street Farmers Market')
   end
+
+  it "can return the empty vendors array" do
+    expect(@market.vendors).to eq([])
+  end
+
+
+
 end
