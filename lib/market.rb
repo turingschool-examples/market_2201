@@ -47,7 +47,7 @@ class Market
     # total_inventory
     # ti.each do |item, attributes|
     #   attributes.each do |k, v|
-    # 
+    #
   end
 
   def total_inventory
@@ -55,7 +55,7 @@ class Market
     ti = {}
     @vendors.each do |vendor|
       vendor.inventory.each do |item, quantity|
-        ti[item] = quantity
+        ti[item] = {quantity: quantity, vendors: []}
       end
     end
     ti
