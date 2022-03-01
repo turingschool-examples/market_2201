@@ -10,6 +10,11 @@ RSpec.describe Item do
     it 'exists' do
       expect(item1).to be_a(Item)
     end
+
+    it 'can list attributes' do
+      expect(item2.name).to eq('Tomato')
+      expect(item2.price).to eq('$0.50')
+    end
     
   end
 end
