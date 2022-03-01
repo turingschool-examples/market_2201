@@ -18,7 +18,7 @@ class Market
       @vendors.find_all{|vendor| vendor.inventory.keys.include?(item)}
     end
 
-    def total_invetory
+    def total_inventory
       total_inventory_items = Hash.new
       @vendors.each { |vendor|
 
@@ -38,10 +38,13 @@ class Market
     end
 
     def overstocked_items
-      overstock = total_invetory.find_all {|item, hash|
+      overstock = total_inventory.find_all {|item, hash|
             hash[:quantity] > 50 && hash[:vendors].length >1
           }
-      overstock.map { |overstock|  overstock[0]} 
+      overstock.map { |overstock|  overstock[0]}
+    end
 
+    def sorted_item_list
+      total_inventory.map {|overstock| overstock[0].name}.sort
     end
 end
