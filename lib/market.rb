@@ -16,4 +16,14 @@ class Market
     names
   end
 
+  def vendors_that_sell(item)
+    in_stock = Array.new
+    @vendors.each do |vendor|
+      if vendor.inventory.include?(item)
+        in_stock << vendor
+      end
+    end
+    in_stock
+  end
+
 end
