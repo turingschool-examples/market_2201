@@ -8,23 +8,26 @@ RSpec.describe Vendor do
     @item2 = Item.new({name: 'Tomato', price: '$0.50'})
   end
 
-it "exists" do
-  expect(@vendor).to be_a(Vendor)
-end
+  it "exists" do
+    expect(@vendor).to be_a(Vendor)
+  end
 
-it "can return attrbutes" do
-  expect(@vendor.name).to eq("Rocky Mountain Fresh")
-end
+  it "can return attrbutes" do
+    expect(@vendor.name).to eq("Rocky Mountain Fresh")
+  end
 
-it "has an empty hash created for inventory" do
-  expect(@vendor.inventory).to eq({})
-end
+  it "has an empty hash created for inventory" do
+    expect(@vendor.inventory).to eq({})
+  end
 
-it "can count the number of items in inventory" do
-  expect(@vendor.check_stock(@item1)).to eq(0)
-end
+  it "can count the number of items in inventory" do
+    expect(@vendor.check_stock(@item1)).to eq(0)
+  end
 
-it "can #stock items into the inventory" do
-  @vendor.stock(@item1, 30)
-  expect(@vendor.inventory).to eq({:item1 => 30})
+  it "can #stock items into the inventory" do
+    @vendor.stock(@item1, 30)
+    expect(@vendor.inventory).to eq({@item1 => 30})
+  end
+
+
 end

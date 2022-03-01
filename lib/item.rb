@@ -3,7 +3,7 @@ class Item
 
   def initialize(item_info)
     @name = item_info[:name]
-    @price = item_info[:price].delete('$').to_f.round(1)
+    @price = item_info[:price].delete('$').to_f.round(2)
 
 
   end
