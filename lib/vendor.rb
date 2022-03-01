@@ -17,7 +17,6 @@ class Vendor
 
   def stock(item, amount)
     stock = check_stock(item)
-    # require "pry"; binding.pry
     @inventory[item] = stock
     @inventory[item] += amount
     @inventory[item]

@@ -37,5 +37,9 @@ describe Vendor do
     it "inventory returns a hash with Items matched to # in stock" do
       expect(vendor.inventory).to eq({item1 => 55, item2 => 12})
     end
+
+    it 'potential_revenue returns all items price * quantity' do
+      expect(vendor.potential_revenue).to eq(47.25)
+    end
   end
 end
