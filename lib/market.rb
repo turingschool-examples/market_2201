@@ -6,5 +6,9 @@ class Market
     @name = name
     @vendors = Array.new
   end
-  
+
+  def add_vendor(new_vendor)
+    @vendors << new_vendor
+  end
+
 end
