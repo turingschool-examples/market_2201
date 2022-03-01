@@ -30,7 +30,13 @@ RSpec.describe 'Iteration 2' do
 
     expect(market.vendors).to eq([vendor1, vendor2, vendor3])
   end
+
   it 'displays names of vendors in a market' do
     expect(market.vendor_names).to eq(["Rocky Mountain Fresh", "Ba-Nom-a-Nom", "Palisade Peach Shack"])
+  end
+
+  it 'knows what vendors sell what items' do
+    expect(market.vendors_that_sell(item1)).to eq([vendor1, vendor3])
+    expect(market.vendors_that_sell(item4)).to eq([vendor2])
   end
 end
