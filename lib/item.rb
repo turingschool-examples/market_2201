@@ -7,7 +7,7 @@ class Item
 
   def initialize(attributes)
     @name = attributes[:name]
-    @price = attributes[:price].to_i
+    @price = attributes[:price][1..-1].to_f
   end
 
 end

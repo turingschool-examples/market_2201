@@ -19,4 +19,10 @@ class Vendor
     @inventory[item] += quantity
   end
 
+  def potential_revenue
+    total = 0
+    @inventory.each {|item, quantity| total += (item.price * quantity)}
+    total
+  end
+
 end
