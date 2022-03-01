@@ -20,7 +20,17 @@ class Market
     @vendors.find_all { |vendor| vendor.inventory.has_key?(item) }
   end
 
-  
+  def sorted_item_list
+    sorted_item_list = []
+    @vendors.each do |vendor|
+      vendor.inventory.each do |item|
+        item.each do |item|
+          sorted_item_list << item.name if item.class == Item
+        end
+      end
+    end
+    sorted_item_list.sort.uniq
+  end
 
   # def total_inventory
   #   total_inventory = {}
