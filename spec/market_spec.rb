@@ -74,4 +74,39 @@ describe Market do
         expect(@market.total_inventory).to eq({@item1 => {quantity: 100, vendors: [@vendor1, @vendor3]}, @item2 => {quantity: 7, vendors: [@vendor1]}, @item4 => {quantity: 50, vendors: [@vendor2]}, @item3 => {quantity: 35, vendors: [@vendor2, @vendor3]}})
       end
     end
+
+    describe '#overstocked_items' do
+      it 'can tell you which items are overstocked' do
+        @vendor3.stock(@item3, 10)
+        @market.add_vendor(@vendor1)
+        @market.add_vendor(@vendor2)
+        @market.add_vendor(@vendor3)
+        expect(@market.overstocked_items).to eq([@item1])
+      end
+    end
+
+    describe '#sorted_item_list' do
+      it 'can list all items sold in alphabetical order' do
+      @vendor3.stock(@item3, 10)
+      @market.add_vendor(@vendor1)
+      @market.add_vendor(@vendor2)
+      @market.add_vendor(@vendor3)
+
+      expect(@market.sorted_item_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
+    end
+  end
+
+    describe '#sell' do
+      it 'can sell items' do
+        item5 = Item.new({name: 'Onion', price: '$0.25'})
+        @market.add_vendor(@vendor1)
+        @market.add_vendor(@vendor2)
+        @market.add_vendor(@vendor3)
+
+        expect(@market.sell(@item1, 200)).to be false
+        expect(@market.sell(item5, 1)).to be false
+        expect(@market.sell(@item4, 5)).to be true
+        # expect(@vendor2.check_stock(@item4)).to eq(45)
+      end
+    end
 end
