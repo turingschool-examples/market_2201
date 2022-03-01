@@ -36,4 +36,12 @@ class Market
                     }
       total_inventory_items
     end
+
+    def overstocked_items
+      overstock = total_invetory.find_all {|item, hash|
+            hash[:quantity] > 50 && hash[:vendors].length >1
+          }
+      overstock.map { |overstock|  overstock[0]} 
+
+    end
 end
