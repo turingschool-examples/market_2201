@@ -11,4 +11,12 @@ class Market
       vendors << vendor
     end
   end
+
+  def vendor_names
+    names = []
+    vendors.each do |vendor|
+      names << vendor.name
+    end
+    return names
+  end
 end
