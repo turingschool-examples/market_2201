@@ -1,5 +1,5 @@
 class Market
-  attr_accessor :name, :vendors
+  attr_reader :name, :vendors
   def initialize(name)
     @name = name
     @vendors = []
@@ -20,7 +20,7 @@ class Market
   def vendors_that_sell(item)
     vendors_by_item = []
     vendors.each do |vendor|
-      if vendor.inventory.include?(item)
+      if vendor.check_stock(item) != 0
         vendors_by_item << vendor
       end
     end

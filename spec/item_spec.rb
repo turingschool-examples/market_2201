@@ -1,11 +1,6 @@
 require "./lib/item"
-require "./lib/vendor"
 
 RSpec.describe Item do
-  let(:item1) do
-    Item.new({name: "Peach", price: "$0.75"})
-  end
-
   let(:item2) do
     Item.new({name: "Tomato", price: "$0.50"})
   end
