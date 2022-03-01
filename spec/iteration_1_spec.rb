@@ -50,6 +50,7 @@ RSpec.describe Item do
     @vendor.stock(@item1, 30)
     @vendor.stock(@item1, 25)
     @vendor.stock(@item2, 12)
+    binding.pry
     @vendor.inventory
 #    expect(@vendor.inventory).to eq(2)
   end
