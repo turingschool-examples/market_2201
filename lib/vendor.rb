@@ -22,4 +22,12 @@ class Vendor
       @inventory[item] += count
     end
   end
+
+  def potential_revenue
+    potential_revenue = 0
+    @inventory.each do |item, count|
+      potential_revenue += (item.price * count)
+    end
+    potential_revenue
+  end
 end
