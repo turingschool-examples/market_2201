@@ -80,9 +80,10 @@ RSpec.describe Market do
        @market.add_vendor(vendor2)
        @market.add_vendor(vendor3)
        expect(@market.vendors_that_sell(item1)).to eq([vendor1, vendor3])
+       expect(@market.vendors_that_sell(item4)).to eq([vendor2])
     end
 
-    xit "can display vendor potential_revenue" do
+    it "can display vendor potential_revenue" do
       expect(@market.vendors).to eq([])
        vendor1 = Vendor.new("Rocky Mountain Fresh")
        item1 = Item.new({name: 'Peach', price: "$0.75"})

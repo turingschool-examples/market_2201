@@ -23,8 +23,6 @@ class Market
       end
     end
     vendor_arry
-    # require 'pry'; binding.pry
   end
-
 
 end
