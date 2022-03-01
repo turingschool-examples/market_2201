@@ -1,3 +1,4 @@
+require 'time'
 class Market
     attr_reader :name, :vendors
 
@@ -46,5 +47,9 @@ class Market
 
     def sorted_item_list
       total_inventory.map {|overstock| overstock[0].name}.sort
+    end
+
+    def date
+      Time.parse("2020/02/24").strftime('%d/%m/%y')
     end
 end
