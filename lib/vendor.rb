@@ -13,4 +13,8 @@ class Vendor
       @inventory[:item]
     end
   end
+
+  def stock(item, quantity)
+    @inventory[:item] = quantity
+  end
 end
