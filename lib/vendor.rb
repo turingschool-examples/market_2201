@@ -14,4 +14,18 @@ class Vendor
     @inventory[item] += quantity
   end
 
+  def potential_revenue
+    revenue_array = []
+    @inventory.find_all do |item, value|
+      if @inventory[item] >= 0
+        revenue_array << item.price * @inventory[item]
+      end
+    end
+    revenue = 0
+    revenue_array.map do |element|
+      revenue += element
+    end
+    revenue
+  end
+
 end
