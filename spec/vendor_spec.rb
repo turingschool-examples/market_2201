@@ -12,6 +12,10 @@ RSpec.describe Vendor do
       expect(@vendor).to be_a(Vendor)
     end
 
+    it "has a name" do
+
+    end
+
   end
 
 end
