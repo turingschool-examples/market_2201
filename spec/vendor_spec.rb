@@ -9,6 +9,7 @@ RSpec.describe Vendor do
 
   describe 'iteration 2  - Vendor' do
     it 'exists and can read attributes' do
+      expect(vendor).to be_a(Vendor)
       expect(vendor.name).to eq("Rocky Mountain Fresh")
     end
 
