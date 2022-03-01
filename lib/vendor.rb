@@ -24,5 +24,4 @@ class Vendor
     @inventory.map {|item, quantity| item.price * quantity}.sum
   end
 
-
 end

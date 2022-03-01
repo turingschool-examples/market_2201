@@ -20,4 +20,22 @@ class Market
     @vendors.select{|vendor| vendor.inventory.include?(item)}
   end
 
+  def total_inventory
+    inventory = {}
+    @vendors.each do |vendor|
+      vendor.inventory.each do |item, quantity|
+        if !inventory.keys.include?(item)
+          inventory[item] = {quantity: 0, vendors: []}
+        end
+      end
+    end
+    inventory.each do |item, info|
+      vendors_that_sell(item).each do |vendor|
+        info[:vendors] << vendor
+        info[:quantity] += vendor.inventory[item]
+      end
+    end
+    inventory
+  end
+
 end
