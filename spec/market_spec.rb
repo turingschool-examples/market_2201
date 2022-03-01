@@ -14,7 +14,7 @@ RSpec.describe Market do
     @item4 = Item.new({name: "Banana Nice Cream", price: "$4.25"})
     @vendor1.stock(@item1, 35)
     @vendor1.stock(@item2, 7)
-    @vendor2.stock@item4, 50)
+    @vendor2.stock(@item4, 50)
     @vendor2.stock(@item3, 25)
     @vendor3.stock(@item1, 65)
   end

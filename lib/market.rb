@@ -9,5 +9,9 @@ attr_reader :name, :vendors
     @vendors = []
   end
 
+  def add_vendor(vendor)
+    @vendors << vendor
+  end
+
 
 end
