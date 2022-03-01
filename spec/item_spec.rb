@@ -9,6 +9,6 @@ RSpec.describe Item do
   it 'is initialized with name and a price' do
     expect(@item2).to be_instance_of Item
     expect(@item2.name).to eq('Tomato')
-    expect(@item2.price).to eq('$0.50')
+    expect(@item2.price).to eq("$0.50")
   end
 end
