@@ -77,5 +77,21 @@ RSpec.describe Market do
       expect(vendor2.potential_revenue).to eq(345.00)
       expect(vendor3.potential_revenue).to eq(48.75)
     end
+
+    it 'can see a markets total inventory' do
+      vendor1.stock(item1, 35)
+      vendor1.stock(item2, 7)
+      vendor2.stock(item4, 50)
+      vendor2.stock(item3, 25)
+      vendor3.stock(item1, 65)
+      market.add_vendor(vendor1)
+      market.add_vendor(vendor2)
+      market.add_vendor(vendor3)
+      expect(vendor1.potential_revenue).to eq(29.75)
+      expect(vendor2.potential_revenue).to eq(345.00)
+      expect(vendor3.potential_revenue).to eq(48.75)
+      expect(market.total_inventory).to eq(item1, item2, item3, item4)
+      #stuck here for a while
+    end
   end
 end

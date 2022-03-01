@@ -26,4 +26,13 @@ class Market
     in_stock
   end
 
+  def total_inventory
+    #hard stuck on this one 
+    tinv = {}
+    @vendors.each do |vendor|
+      vendor.inventory.map do |item|
+        item[0].info
+      end
+    end
+  end
 end
