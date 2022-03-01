@@ -23,5 +23,9 @@ RSpec.describe do
       expect(@vendor.name).to eq('Rocky Mountain Fresh')
       expect(@vendor.inventory).to eq({})
     end
+
+    it '#check_stock looks up all of items in invetory' do
+      expect(@vendor.check_stock(@item1)).to eq(0)
+    end
   end
 end
