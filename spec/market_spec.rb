@@ -45,6 +45,13 @@ RSpec.describe Market do
     expect(@market.vendor_names).to eq(["Rocky Mountain Fresh", "Ba-Nom-a-Nom", "Palisade Peach Shack"])
   end
 
+  it "can return #vendors_that_sell specified item" do
+    @market.add_vendor(@vendor1)
+    @market.add_vendor(@vendor2)
+    @market.add_vendor(@vendor3)
+    expect(@market.vendors_that_sell(@item4)).to eq([@vendor2])
+  end
+
 
 
 end
