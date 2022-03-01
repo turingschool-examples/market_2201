@@ -6,6 +6,5 @@ class Item
     @name = info[:name]
     @price = info[:price].delete("$").to_f
   end
-
-
+  
 end

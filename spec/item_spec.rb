@@ -11,7 +11,7 @@ RSpec.describe Item do
   end
 
   it "has reaadable attributes 'name' and 'price'" do
-    expect(@item1.name).to eq("Tomato")
-    expect(@item1.price).to eq(0.5)
+    expect(@item1.name).to eq("Peach")
+    expect(@item1.price).to eq(0.75)
   end
 end
