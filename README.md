@@ -13,10 +13,10 @@
 
 ```markdown
 There are **4** Possible Points in Iteration 1:
-1. Item Creation - including all attr_readers
+1. Item Creation - including all attr_readers x
 2. Vendor Creation - including all attr_readers
-3. Vendor #check_stock
-4. Vendor #stock
+3. Vendor #check_stock x
+4. Vendor #stock x
 ```
 
 The Market will need to keep track of its Vendors and their Items. Each Vendor will be able to report its total inventory, stock items, and return the quantity of items. Any item not in stock should return `0` by default.
@@ -51,15 +51,15 @@ pry(main)> vendor.name
 pry(main)> vendor.inventory
 #=> {}
 
-pry(main)> vendor.check_stock(item1)
+pry(main)> vendor.check_stock(item1) x
 #=> 0
 
-pry(main)> vendor.stock(item1, 30)
+pry(main)> vendor.stock(item1, 30) x
 
-pry(main)> vendor.inventory
+pry(main)> vendor.inventory x
 #=> {#<Item:0x007f9c56740d48...> => 30}
 
-pry(main)> vendor.check_stock(item1)
+pry(main)> vendor.check_stock(item1) x
 #=> 30
 
 pry(main)> vendor.stock(item1, 25)
@@ -69,7 +69,7 @@ pry(main)> vendor.check_stock(item1)
 
 pry(main)> vendor.stock(item2, 12)
 
-pry(main)> vendor.inventory
+pry(main)> vendor.inventory x
 #=> {#<Item:0x007f9c56740d48...> => 55, #<Item:0x007f9c565c0ce8...> => 12}
 ```
 
@@ -148,10 +148,10 @@ pry(main)> market.add_vendor(vendor2)
 
 pry(main)> market.add_vendor(vendor3)
 
-pry(main)> market.vendors
+pry(main)> market.vendors x
 #=> [#<Vendor:0x00007fe1348a1160...>, #<Vendor:0x00007fe1349bed40...>, #<Vendor:0x00007fe134910650...>]
 
-pry(main)> market.vendor_names
+pry(main)> market.vendor_names x
 #=> ["Rocky Mountain Fresh", "Ba-Nom-a-Nom", "Palisade Peach Shack"]
 
 pry(main)> market.vendors_that_sell(item1)
