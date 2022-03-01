@@ -25,6 +25,8 @@ RSpec.describe Vendor do
   it 'can add_stock and check_stock' do
     @vendor.stock(@item1, 30)
     expect(@vendor.check_stock(@item1)).to eq 30
+    @vendor.stock(@item1, 25)
+    expect(@vendor.check_stock(@item1)).to eq 55
   end
 
 

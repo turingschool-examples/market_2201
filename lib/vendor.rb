@@ -7,6 +7,8 @@ class Vendor
 
 
   def stock(item, quantity)
+    inventory.keys.include?(item) ?
+    inventory[item] += quantity :
     inventory[item] = quantity
   end
 
