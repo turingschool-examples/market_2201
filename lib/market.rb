@@ -16,7 +16,10 @@ class Market
     end
 
     def vendors_that_sell(item)
-      @vendors.find_all{|vendor| vendor.inventory.keys.include?(item)}
+      # @vendors.find_all{|vendor| vendor.inventory.keys.include?(item)}
+      # @vendors.find_all{|vendor| vendor.inventory.key?(item)}
+      @vendors.select {|vendor| vendor.check_stock(item) > 0}
+
     end
 
     def total_inventory
@@ -50,16 +53,26 @@ class Market
     end
 
     def date
-      Date.today.strftime('%d/%m/%y')
+      [Date.today.strftime('%d/%m/%y')[0..-3], Date.today.year.to_s].join
     end
 
     def sell(item, quantity)
-      total_inventory.find {|i, hash|
-        if i == item && hash[:quantity] >= quantity
-          return true
-        else
-          return false
-        end
-                            }
+      item_found = total_inventory.find { |i, hash| i = item}
+          if item_found != nil && total_inventory[item][:quantity] >= quantity
+                  @vendors.each {|vendor|
+                    if  vendor.inventory[item] > quantity
+                           vendor.inventory[item] -= quantity
+                           quantity = 0
+                     else
+                           quantity -= vendor.inventory[item]
+                           vendor.inventory[item] = 0
+                     end
+                     break if quantity == 0
+                                      }
+                    true
+          else
+                    false
+          end
+
     end
 end

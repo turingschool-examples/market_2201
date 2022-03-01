@@ -27,11 +27,17 @@ end
 
 
   it 'has a date' do
-    expect(@market.date).to eq("01/03/22")
+    expect(@market.date).to eq("01/03/2022")
   end
 
   it 'can sell items' do
     expect(@market.sell(@item1, 200)).to be false
+    # require 'pry'; binding.pry
+    expect(@market.sell(@item1, 40)).to be true
+    expect(@vendor1.inventory[@item1]).to eq 0
+    expect(@vendor3.inventory[@item1]).to eq 60
+    @market.sell(@item4, 20)
+    expect(@vendor2.inventory[@item4]).to be 30
   end
 
   end
