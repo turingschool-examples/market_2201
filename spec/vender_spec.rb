@@ -15,11 +15,17 @@ RSpec.describe Vendor do
 
   it 'has a name' do
     expect(@vendor.name).to eq 'Rocky Mountain Fresh'
-  end 
+  end
 
 
+  it 'starts with an empty inventory' do
+    expect(@vendor.inventory).to eq({})
+  end
 
-
+  it 'can add_stock and check_stock' do
+    @vendor.stock(@item1, 30)
+    expect(@vendor.check_stock(@item1)).to eq 30
+  end
 
 
 
