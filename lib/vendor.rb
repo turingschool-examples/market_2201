@@ -23,4 +23,10 @@ class Vendor
       @inventory[item] = amount
     end
   end
+
+  def potential_revenue
+    potential_revenue = 0
+    @inventory.each_pair{|key, value| potential_revenue += key.price.delete('$').to_f * value}
+    return potential_revenue
+  end
 end
