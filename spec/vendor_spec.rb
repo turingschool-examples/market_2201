@@ -10,5 +10,9 @@ RSpec.describe Vendor do
     it 'exists and can read attributes' do
       expect(vendor.name).to eq("Rocky Mountain Fresh")
     end
+
+    it 'has an empty inventory' do
+      expect(vendor.inventory).to eq({})
+    end
   end
 end
