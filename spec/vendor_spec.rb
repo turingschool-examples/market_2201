@@ -16,4 +16,8 @@ RSpec.describe Vendor do
   it "has readable attribute 'name'" do
     expect(@vendor.name).to eq("Rocky Mountain Fresh")
   end
+
+  it "has an empty hash 'inventory' by default" do
+    expect(@vendor.inventory).to eq({})
+  end
 end
