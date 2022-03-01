@@ -27,7 +27,7 @@ RSpec.describe Vendor do
     expect(@vendor.check_stock(@item1)).to eq(30)
   end
 
-  xit 'can stock more than 1 item' do
+  it 'can stock more than 1 item' do
     @vendor.stock(@item1, 30)
     @vendor.stock(@item1, 25)
     expect(@vendor.check_stock(@item1)).to eq(55)
