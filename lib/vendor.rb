@@ -5,7 +5,11 @@ class Vendor
     @inventory = Hash.new(0)
   end
 
-  def check_stock(item_num)
-    inventory[item_num]
+  def check_stock(item)
+    inventory[item]
+  end
+
+  def stock(item, count)
+    inventory[item] += count
   end
 end

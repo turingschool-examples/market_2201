@@ -1,14 +1,10 @@
 require "./lib/item"
 require "./lib/vendor"
+require "pry"
 
 RSpec.describe Vendor do
-  let(:item1) do
-    Item.new({name: "Peach", price: "$0.75"})
-  end
-
-  let(:item2) do
-    Item.new({name: "Tomato", price: "$0.50"})
-  end
+  item1 = Item.new({name: "Peach", price: "$0.75"})
+  item2 = Item.new({name: "Tomato", price: "$0.50"})
 
   let(:vendor) do
     Vendor.new("Rocky Mountain Fresh")
@@ -28,6 +24,11 @@ RSpec.describe Vendor do
 
   it "stocks items" do
     vendor.stock(item1, 30)
-    expect(vendor.inventory).to eq({item1: 30})
+    expect(vendor.inventory.values).to eq([30])
+    expect(vendor.check_stock(item1)).to eq(30)
+    vendor.stock(item1, 25)
+    expect(vendor.check_stock(item1)).to eq(55)
+    vendor.stock(item2, 12)
+    expect(vendor.inventory.values).to eq([55, 12])
   end
 end
