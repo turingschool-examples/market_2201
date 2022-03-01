@@ -114,9 +114,10 @@ RSpec.describe Market do
       @vendor2.stock(@item2, 10)
       @vendor2.stock(@item4, 45)
       expect(@market.sell(@item1, 45)).to eq(true)
+      @market.sell(@item1, 45)
       expect(@market.total_inventory[@item1][:quantity]).to eq(6)
-      expect(@vendor1.inventory[@item1]).to eq(0)
-      expect(@vendor2.inventory[@item1]).to eq(6)
+      expect(@vendor1.check_stock(@item1)).to eq(0)
+      expect(@vendor2.check_stock(@item1)).to eq(6)
     end
   end
 

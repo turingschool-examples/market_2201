@@ -59,4 +59,23 @@ class Market
     overstocked_items
   end
 
+  def sell(item, quantity)
+    if quantity <= total_inventory[item][:quantity]
+      vendors_that_sell(item).each do |vendor|
+        if vendor.inventory[item] >= quantity
+          difference = vendor.inventory[item] - quantity
+          vendor.inventory[item] -= quantity
+          quantity -= difference
+        else
+          difference = quantity - vendor.inventory[item]
+          quantity -= vendor.inventory[item]
+          vendor.inventory[item] = 0
+        end
+      end
+      return true
+    else
+      return false
+    end
+  end
+
 end
