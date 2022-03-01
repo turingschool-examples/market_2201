@@ -10,4 +10,8 @@ class Vendor
   def check_stock(item)
     @inventory.find_all { |stock| stock.item == item }.count
   end
+
+  def stock(item, amount)
+    @inventory.store(item, amount)
+  end
 end

@@ -27,5 +27,11 @@ RSpec.describe do
     it '#check_stock looks up all of items in invetory' do
       expect(@vendor.check_stock(@item1)).to eq(0)
     end
+
+    it '#stock adds to inventory' do
+      @vendor.stock(@item1, 30)
+
+      expect(@vendor.inventory).to eq(@item1 => 30)
+    end
   end
 end
