@@ -26,6 +26,7 @@ describe Market do
     vendor1.stock(item2, 7)
     vendor2.stock(item4, 50)
     vendor2.stock(item3, 25)
+    vendor3.stock(item1, 50)
 
     it 'can add a vendor with add_vendor' do
       market.add_vendor(vendor1)

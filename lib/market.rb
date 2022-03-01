@@ -21,4 +21,19 @@ class Market
       inventory.include?(item)
     end
   end
+  #this next method is pretty darn long, but heck, I'm hype that it works
+  def total_inventory
+    inventory = {}
+    items = @vendors.map do |vendor|
+      vendor.inventory.keys
+    end.flatten.uniq!
+    items.map do |item|
+      inventory[item] = {quantity: 0, vendors: vendors_that_sell(item)}
+    end
+    inventory.each do |item, traits|
+      vendors = vendors_that_sell(item)
+      vendors.each {|vendor| traits[:quantity] += vendor.inventory[item]}
+    end
+    inventory
+  end
 end
