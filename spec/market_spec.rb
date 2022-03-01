@@ -18,6 +18,10 @@ RSpec.describe Market do
       expect(@market.name).to eq("South Pearl Street Farmers Market")
     end
 
+    it "has vendors" do
+      expect(@market.vendors).to eq([])
+    end
+
 
   end
 
