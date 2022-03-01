@@ -10,14 +10,14 @@ def inventory
 
 end
 
-def check_stock(arg/item instance)
+#def check_stock(arg/item instance)
   # default is zero
-end
+#end
 
-def stock(arg/item instance, qty)
+#def stock(arg/item instance, qty)
   # let's say we input 30 for qty
   #
-end
+#end
 
 
 

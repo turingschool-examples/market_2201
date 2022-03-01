@@ -12,9 +12,9 @@ RSpec.describe Item do
   it 'has both name and price assigned and readable
   on init' do
     expect(item1.name).to eq 'Peach'
-    expect(item1.price).to eq '$0.75'
+    expect(item1.price).to eq 0.75
     expect(item2.name).to eq 'Tomato'
-    expect(item2.price).to eq '$0.50'  
+    expect(item2.price).to eq 0.50  
   end
 
 
