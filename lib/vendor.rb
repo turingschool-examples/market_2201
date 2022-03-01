@@ -7,10 +7,10 @@ class Vendor
   end
 
   def check_stock(item)
-    @inventory[item.to_s]
+    @inventory[item]
   end
 
   def stock(item, quantity)
-    @inventory[item.to_s] += quantity
+    @inventory[item] += quantity
   end
 end
