@@ -36,4 +36,9 @@ describe Market do
   it "can return vendors names" do
     expect(market.vendor_names).to eq(["Rocky Mountain Fresh", "Ba-Nom-a-Nom", "Palisade Peach Shack"])
   end
+
+  it "can determine vendors that sell similar items" do
+    expect(market.vendors_that_sell(item1)).to eq([vendor1, vendor3])
+    expect(market.vendors_that_sell(item4)).to eq([vendor2])
+  end
 end
