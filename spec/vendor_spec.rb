@@ -1,4 +1,5 @@
 require 'rspec'
+require 'item'
 require './lib/vendor'
 
 RSpec.describe Vendor do
@@ -10,5 +11,9 @@ RSpec.describe Vendor do
 
   it "exists" do
     expect(@vendor).to be_an_instance_of(Vendor)
+  end
+
+  it "has readable attribute 'name'" do
+    expect(@vendor.name).to eq("Rocky Mountain Fresh")
   end
 end
