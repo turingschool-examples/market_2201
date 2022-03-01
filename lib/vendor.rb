@@ -6,4 +6,8 @@ class Vendor
     @name = name
     @inventory = {}
   end
+
+  def check_stock(item)
+    @inventory.find_all { |stock| stock.item == item }.count
+  end
 end
