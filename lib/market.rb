@@ -32,4 +32,22 @@ class Market
     item_names.sort
   end
 
+  def total_inventory
+    total_inventory_hash = Hash.new({quantity: 0, vendors: []})
+    @vendors.each do |vendor|
+      vendor.inventory.each do |item, quantity|
+        total_inventory_hash[item] = {
+          quantity: 0,
+          vendors: vendors_that_sell(item)
+        }
+      end
+    end
+    @vendors.each do |vendor|
+      vendor.inventory.each do |item, quantity|
+        total_inventory_hash[item][:quantity] += quantity
+      end
+    end
+    total_inventory_hash
+  end
+
 end
