@@ -5,4 +5,10 @@ class Market
     @name = name
     @vendors = []
   end
+
+  def add_vendor(vendor)
+    if !vendors.include?(vendor)
+      vendors << vendor
+    end
+  end
 end

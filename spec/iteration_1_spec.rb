@@ -6,9 +6,12 @@ RSpec.describe 'Iteration 1' do
   item2 = Item.new({name: 'Tomato', price: "$0.50"})
   vendor = Vendor.new("Rocky Mountain Fresh")
 
-  it 'has readable attributes for Item and Vendor classes' do
+  it 'has readable attributes for Item class' do
     expect(item2.name).to eq("Tomato")
     expect(item1.price).to eq("$0.75")
+  end
+
+  it 'has readable attributes for Vendor class' do
     expect(vendor.name).to eq('Rocky Mountain Fresh')
     expect(vendor.inventory).to eq({})
   end
