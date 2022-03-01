@@ -49,4 +49,41 @@ RSpec.describe Market do
       expect(@market.vendors_that_sell(@item1)).to eq([@vendor1])
     end
   end
+
+  describe '#sorted_item_list' do
+    it 'can return a list of names of all items the vendors have in stock, sorted alphabetically' do
+      @market.add_vendor(@vendor1)
+      @market.add_vendor(@vendor2)
+      @vendor1.stock(@item2, 7)
+      @vendor1.stock(@item1, 35)
+      @vendor2.stock(@item2, 10)
+      @vendor2.stock(@item4, 45)
+      expect(@market.sorted_item_list).to eq(["Banana Nice Cream", "Peach", "Tomato"])
+    end
+  end
+
+  describe '#total_inventory' do
+    it 'can report the quantities of all items sold t the market' do
+      @market.add_vendor(@vendor1)
+      @market.add_vendor(@vendor2)
+      @vendor1.stock(@item2, 7)
+      @vendor1.stock(@item1, 35)
+      @vendor2.stock(@item2, 10)
+      @vendor2.stock(@item4, 45)
+      expect(@market.total_inventory).to eq({
+        @item2 => {
+          quantity: 17,
+          vendors: [@vendor1, @vendor2]
+        },
+        @item1 => {
+          quantity: 35,
+          vendors: [@vendor1]
+        },
+        @item4 => {
+          quantity: 45,
+          vendors: [@vendor2]
+        }
+        })
+      end
+    end
 end
