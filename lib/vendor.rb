@@ -6,9 +6,10 @@ class Vendor
   end
 
   def check_stock(item)
-    stock = @inventory.map { |item| item.value }
-    stock.count
+    stock = @inventory[item]
   end
 
-
+  def stock(item, num_items)
+    @inventory[item] += num_items
+  end
 end
