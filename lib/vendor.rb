@@ -19,4 +19,12 @@ class Vendor
     return 0 if item_to_check.nil?
     item_to_check[-1]
   end
+
+  def potential_revenue
+    item_prices = @inventory.keys.map{|item| item.price}
+    quantitys = @inventory.values
+    cost_and_count = item_prices.zip(quantitys)
+    cost_and_count.map{|item| item[0] * item[1]}.sum
+    # binding.pry
+  end
 end
