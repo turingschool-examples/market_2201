@@ -39,4 +39,10 @@ RSpec.describe 'Iteration 2' do
     expect(market.vendors_that_sell(item1)).to eq([vendor1, vendor3])
     expect(market.vendors_that_sell(item4)).to eq([vendor2])
   end
+
+  it 'calculates vendor potential revenue' do
+    expect(vendor1.potential_revenue).to eq(29.75)
+    expect(vendor2.potential_revenue).to eq(345.00)
+    expect(vendor3.potential_revenue).to eq(48.75)
+  end
 end

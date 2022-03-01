@@ -21,4 +21,14 @@ class Vendor
       inventory[item] += count
     end
   end
+
+  def potential_revenue
+    potential = 0
+    inventory.each do |item|
+      price_calcable = item[0].price.split("")
+      price_calcable.shift
+      potential += price_calcable.join("").to_f * item[1]
+    end
+    return potential
+  end
 end
