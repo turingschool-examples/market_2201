@@ -47,4 +47,23 @@ describe Market do
     expect(vendor2.potential_revenue).to eq(345.00)
     expect(vendor3.potential_revenue).to eq(48.75)
   end
+
+  xit "can determine all items in stock" do
+    vendor3.stock(item3, 10)
+    expect(market.total_inventory).to eq({
+      item1 => {quantity: 100, vendors: [vendor1, vendor3]},
+      item2 => {quantity: 7, vendors: [vendor1]},
+      item3 => {quantity: 35, vendors: [vendor1]},
+      item4 => {quantity: 50, vendors: [vendor1]}
+      })
+  end
+
+  it "can determine if an item is overstocked" do
+    expect(market.overstocked_items).to eq([item1])
+  end
+
+  it "can list all item names in sorted list" do
+    expect(market.sorted_item_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
+  end
+
 end
