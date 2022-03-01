@@ -30,5 +30,17 @@ RSpec.describe Vendor do
       expect(@vendor.check_stock(@item1)).to be_an(Integer)
       expect(@vendor.check_stock(@item1)).to be(30)
     end
+
+    it 'can add to an already existing quantity' do
+      @vendor.stock(@item1, 25)
+      expect(@vendor.check_stock(@item1)).to be(55)
+    end
+
+    it 'can contain multiple items and quantities' do
+      @vendor.stock(@item1, 25)
+      @vendor.stock(@item2, 12)
+      expected = {@item1 => 55, @item2 => 12 }
+      expect(@vendor.inventory).to eq(expected)
+    end
   end
 end
