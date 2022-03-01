@@ -24,4 +24,12 @@ class Market
     @vendors.find_all {|vendor| vendor.inventory.has_key?(item)}
   end
 
+  def sorted_item_list
+    items = @vendors.flat_map do |vendor|
+      vendor.inventory.keys
+    end.uniq
+    item_names = items.map {|item| item.name}
+    item_names.sort
+  end
+
 end

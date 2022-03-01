@@ -63,7 +63,7 @@ RSpec.describe Market do
   end
 
   describe '#total_inventory' do
-    it 'can report the quantities of all items sold t the market' do
+    xit 'can report the quantities of all items sold t the market' do
       @market.add_vendor(@vendor1)
       @market.add_vendor(@vendor2)
       @vendor1.stock(@item2, 7)
@@ -71,19 +71,37 @@ RSpec.describe Market do
       @vendor2.stock(@item2, 10)
       @vendor2.stock(@item4, 45)
       expect(@market.total_inventory).to eq({
-        @item2 => {
-          quantity: 17,
-          vendors: [@vendor1, @vendor2]
-        },
-        @item1 => {
-          quantity: 35,
-          vendors: [@vendor1]
-        },
-        @item4 => {
-          quantity: 45,
-          vendors: [@vendor2]
+          @item2 => {
+            quantity: 17,
+            vendors: [@vendor1, @vendor2]
+          },
+          @item1 => {
+            quantity: 35,
+            vendors: [@vendor1]
+          },
+          @item4 => {
+            quantity: 45,
+            vendors: [@vendor2]
+          }
         }
-        })
-      end
+      )
     end
+  end
+
+  describe '#overstocked_items' do
+    xit 'can determine if an item is sold by more than 1 vendor and has a total inventory greater than 50' do
+      @market.add_vendor(@vendor1)
+      @market.add_vendor(@vendor2)
+      @vendor1.stock(@item2, 7)
+      @vendor1.stock(@item1, 35)
+      @vendor2.stock(@item2, 10)
+      @vendor2.stock(@item4, 45)
+      @vendor2.stock(@item1, 16)
+      expect(@market.overstocked_items).to eq([@item1])
+      @vendor1.stock(@item4, 15)
+      @vendor2.stock(@item3, 65)
+      expect(@market.overstocked_items).to eq([@item1, @item4])
+    end
+  end
+
 end
