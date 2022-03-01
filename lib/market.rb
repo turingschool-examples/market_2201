@@ -27,4 +27,33 @@ class Market
     end
   end
 
+  def total_inventory
+    total_inventory_hash = {}
+    sub_hash= Hash.new(0)
+    @vendors.map do |vendor|
+      vendor.inventory.keys.each do |item|
+        total_inventory_hash[item]
+      end
+    end
+
+    @vendors.map do |vendor|
+      vendor.inventory.map do |item, quantity|
+
+        sub_hash[item] += quantity
+
+      end
+    end
+
+    sub_hash[:vendors] = []
+    @vendors.map do |vendor|
+      vendor.inventory.keys.map do |item|
+        if vendor.inventory.keys.include?(item)
+          sub_hash[:vendors] << vendor
+        end
+      end
+      end
+      require "pry"; binding.pry
+      sub_hash
+    end
+
 end
