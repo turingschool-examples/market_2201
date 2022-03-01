@@ -15,5 +15,9 @@ RSpec.describe Market do
     it 'can read the name' do
       expect(market.name).to eq("South Pearl Street Farmers Market")
     end
+
+    it 'can list an array of Vendors' do
+      expect(market.vendors).to eq([])
+    end
   end
 end
