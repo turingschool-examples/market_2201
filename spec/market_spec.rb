@@ -40,4 +40,11 @@ RSpec.describe Market do
     expect(market.vendors_that_sell(item1)).to eq([vendor1, vendor3])
     expect(market.vendors_that_sell(item4)).to eq([vendor2])
   end
+
+  it 'returns a hash of total inventory value per item key' do
+    vendor3.stock(item3, 10)
+
+    expect(market.total_inventory).to eq({item1 => {quantity: 100, vendors: [vendor1, vendor3]}, item2 => {quantity: 7, vendors:[vendor1]}, item4 => {quantity: 50, vendors: [vendor2]}, item3 => {quantity: 35, vendors: [vendor2, vendor3]}})
+  end
+
 end
