@@ -104,4 +104,20 @@ RSpec.describe Market do
     end
   end
 
+  describe '#sell' do
+    it 'can determine if there is enough of some item to sell and sell it if so' do
+      @market.add_vendor(@vendor1)
+      @market.add_vendor(@vendor2)
+      @vendor1.stock(@item1, 35)
+      @vendor1.stock(@item2, 7)
+      @vendor2.stock(@item1, 16)
+      @vendor2.stock(@item2, 10)
+      @vendor2.stock(@item4, 45)
+      expect(@market.sell(@item1, 45)).to eq(true)
+      expect(@market.total_inventory[@item1][:quantity]).to eq(6)
+      expect(@vendor1.inventory[@item1]).to eq(0)
+      expect(@vendor2.inventory[@item1]).to eq(6)
+    end
+  end
+
 end
