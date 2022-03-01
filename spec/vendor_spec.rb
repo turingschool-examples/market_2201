@@ -16,10 +16,15 @@ RSpec.describe Vendor do
       expect(vendor.check_stock(item1)).to eq(0)
     end
 
-    it 'adds stock' do
+    it 'adds a new stock item' do
       vendor.stock(item1, 30)
       expect(vendor.check_stock(item1)).to eq(30)
       expect(vendor.inventory).to eq({item1 => 30})
+    end
+
+    it 'adds to an existing stock item' do
+      vendor.stock(item1, 25)
+      expect(vendor.check_stock(item1)).to eq(55)
     end
   end
 end
