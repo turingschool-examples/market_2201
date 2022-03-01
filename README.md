@@ -151,7 +151,7 @@ pry(main)> market.add_vendor(vendor3)
 pry(main)> market.vendors x
 #=> [#<Vendor:0x00007fe1348a1160...>, #<Vendor:0x00007fe1349bed40...>, #<Vendor:0x00007fe134910650...>]
 
-pry(main)> market.vendor_names
+pry(main)> market.vendor_names x
 #=> ["Rocky Mountain Fresh", "Ba-Nom-a-Nom", "Palisade Peach Shack"]
 
 pry(main)> market.vendors_that_sell(item1)
