@@ -1,9 +1,11 @@
 require './lib/vendor'
+require './lib/item'
 
 RSpec.describe Vendor do
 
   before(:each) do
     @vendor = Vendor.new("Rocky Mountain Fresh")
+    @item1 = Item.new({name: 'Peach', price: "$0.75"})
   end
 
   describe 'Iteration 1' do
@@ -21,7 +23,7 @@ RSpec.describe Vendor do
     end
 
     it "can check the stock of inventory" do
-      expect(@vendor.check_stock(item1)).to eq(30)
+      expect(@vendor.check_stock(@item1)).to eq(0)
     end
 
   end
