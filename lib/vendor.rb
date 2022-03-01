@@ -7,18 +7,14 @@ class Vendor
   end
 
   def check_stock(item)
-    item_tag = item.name.downcase.to_sym
-    if inventory.include?(item_tag)
-      return inventory[item_tag][:count]
+    if inventory.include?(item)
+      return inventory[item]
     else
       return 0
     end
   end
 
   def stock(item, count)
-    inventory[item.name.downcase.to_sym] = {
-      item: item,
-      count: count
-    }
+    inventory[item] = count
   end
 end
