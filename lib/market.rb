@@ -50,6 +50,16 @@ class Market
     end
 
     def date
-      Time.parse("2020/02/24").strftime('%d/%m/%y')
+      Date.today.strftime('%d/%m/%y')
+    end
+
+    def sell(item, quantity)
+      total_inventory.find {|i, hash|
+        if i == item && hash[:quantity] >= quantity
+          return true
+        else
+          return false
+        end
+                            }
     end
 end

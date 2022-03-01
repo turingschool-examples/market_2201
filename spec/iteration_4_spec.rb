@@ -27,9 +27,11 @@ end
 
 
   it 'has a date' do
-    expect(@market.date).to eq("24/02/2020")
+    expect(@market.date).to eq("01/03/22")
   end
 
-
+  it 'can sell items' do
+    expect(@market.sell(@item1, 200)).to be false
+  end
 
   end
