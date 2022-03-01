@@ -31,7 +31,12 @@ RSpec.describe do
     it '#stock adds to inventory' do
       @vendor.stock(@item1, 30)
 
+      binding.pry
       expect(@vendor.inventory).to eq(@item1 => 30)
+
+      @vendor.stock(@item1, 25)
+
+      expect(@vendor.inventory).to eq(@item1 => 55)
     end
   end
 end
