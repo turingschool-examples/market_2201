@@ -49,4 +49,13 @@ class Market
     end
     return overstocked_items
   end
+
+  def sorted_items_list
+    inv = total_inventory
+    items = []
+    inv.each do |inv_item|
+      items << inv_item[0].name
+    end
+    items.sort
+  end
 end

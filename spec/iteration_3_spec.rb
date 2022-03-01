@@ -30,5 +30,9 @@ RSpec.describe 'Iteration 3' do
   it 'Finds overstocked items' do
     expect(market.overstocked_items).to eq([item1])
   end
+
+  it 'Returns all items at Market alphabetically with no duplicates' do
+    expect(market.sorted_items_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
+  end
 end
 
