@@ -50,4 +50,13 @@ class Market
     total_inventory_hash
   end
 
+  def overstocked_items
+    overstocked_items = @vendors.flat_map do |vendor|
+      vendor.inventory.select do |item, quantity|
+        total_inventory[item][:quantity] > 50 && vendors_that_sell(item).count > 1
+      end.keys
+    end.uniq
+    overstocked_items
+  end
+
 end

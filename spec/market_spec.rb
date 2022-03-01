@@ -89,7 +89,7 @@ RSpec.describe Market do
   end
 
   describe '#overstocked_items' do
-    xit 'can determine if an item is sold by more than 1 vendor and has a total inventory greater than 50' do
+    it 'can determine if an item is sold by more than 1 vendor and has a total inventory greater than 50' do
       @market.add_vendor(@vendor1)
       @market.add_vendor(@vendor2)
       @vendor1.stock(@item2, 7)
