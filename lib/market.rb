@@ -15,4 +15,5 @@ class Market
       vendor.name
     end
   end
+
 end
