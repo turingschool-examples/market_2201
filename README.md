@@ -14,7 +14,7 @@
 ```markdown
 There are **4** Possible Points in Iteration 1:
 1. Item Creation - including all attr_readers x
-2. Vendor Creation - including all attr_readers 
+2. Vendor Creation - including all attr_readers
 3. Vendor #check_stock
 4. Vendor #stock
 ```
@@ -51,10 +51,10 @@ pry(main)> vendor.name
 pry(main)> vendor.inventory
 #=> {}
 
-pry(main)> vendor.check_stock(item1)
+pry(main)> vendor.check_stock(item1) x
 #=> 0
 
-pry(main)> vendor.stock(item1, 30)
+pry(main)> vendor.stock(item1, 30) x
 
 pry(main)> vendor.inventory
 #=> {#<Item:0x007f9c56740d48...> => 30}
