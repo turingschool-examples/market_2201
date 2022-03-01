@@ -20,7 +20,7 @@ class Market
   def vendors_that_sell(item)
     vendors_by_item = []
     vendors.each do |vendor|
-      if vendor.check_stock(item) != 0
+      if vendor.inventory.include?(item)
         vendors_by_item << vendor
       end
     end
