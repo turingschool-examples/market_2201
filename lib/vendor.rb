@@ -7,7 +7,7 @@ class Vendor
   end
 
   def check_stock(item)
-    0
+    # @inventory[item]
   end
 
   def stock(item, quantity)
