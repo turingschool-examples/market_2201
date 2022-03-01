@@ -9,9 +9,17 @@ class Vendor
 
   def check_stock(given_item)
     amount = 0
-    if @inventory[:item]
-      amount += @inventory[:item]
+    if @inventory[given_item]
+      amount += @inventory[given_item]
     end
     amount
+  end
+
+  def stock(item, amount)
+    stock = check_stock(item)
+    # require "pry"; binding.pry
+    @inventory[item] = stock
+    @inventory[item] += amount
+    @inventory[item]
   end
 end
