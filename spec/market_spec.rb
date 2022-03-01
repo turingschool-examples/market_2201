@@ -13,7 +13,11 @@ RSpec.describe Market do
   end
 
 
-    it "has readable attribute 'name'" do
-      expect(@market.name).to eq("South Pearl Street Farmers Market")
-    end
+  it "has readable attribute 'name'" do
+    expect(@market.name).to eq("South Pearl Street Farmers Market")
+  end
+
+  it "has an empty array 'vendors' by default" do
+    expect(@market.vendors).to eq([])
+  end
 end
