@@ -72,5 +72,9 @@ describe Market do
         item4 => {quantity: 50, vendors: [vendor2]}
         })
     end
+
+    it 'overstocked_items returns items that have quantity >= 50' do
+      expect(market.overstocked_items).to eq([item1, item4])
+    end
   end
 end
