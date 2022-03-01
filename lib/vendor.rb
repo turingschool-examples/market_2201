@@ -6,9 +6,9 @@ class Vendor
     @name = name
   end
 
-def inventory
-
-end
+  def inventory
+    my_items_list_is = {}
+  end
 
 #def check_stock(arg/item instance)
   # default is zero
