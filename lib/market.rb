@@ -36,4 +36,11 @@ class Market
     end
     inventory
   end
+
+  def overstocked_items
+    overstocked = []
+    total_inventory.each do |item, traits|
+      overstocked << item if traits[:quantity] >= 50
+    end
+  end
 end
