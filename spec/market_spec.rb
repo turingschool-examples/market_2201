@@ -58,5 +58,33 @@ require './lib/market'
       end
     end
 
+    describe 'items' do
+      it 'returns a collection of items sold at the market' do
+        expect(@market.items).to eq([@item1, @item2, @item4, @item3])
+      end
+    end
+
+    describe 'total_inventory' do
+      it 'returns a hash of every vendors inventory' do
+        expect(@market.total_inventory).to be_a(Hash)
+        expect(@market.total_inventory.keys).to be_a([@item1, @item2, @item4, @item3])
+        @market.total_inventory.values.each do |value|
+          expect(value).to be_a(Hash)
+        end
+      end
+    end
+
+    describe '#overstocked_items' do
+      it 'returns collection of overstocked_items' do
+        expect(@market.overstocked_items).to eq([@item1])
+      end
+    end
+
+    describe '#sorted_item_list' do
+      it 'returns a sorted list' do
+        expect(@market.sorted_item_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
+      end
+    end
+
   end
  end
