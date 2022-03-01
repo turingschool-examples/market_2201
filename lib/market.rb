@@ -28,15 +28,20 @@ class Market
 
   def total_inventory
     inventory_hash = {}
+    stock = 0
     @vendors.each do |vendor|
       vendor.inventory.each do |item, num_in_stock|
+        stock += num_in_stock
         v = vendors_that_sell(item)
-        num_in_stock +=
         if inventory_hash[item] == nil
-          inventory_hash[item] = {quantity: num_in_stock, vendors: v}
+          inventory_hash[item] = {quantity: stock, vendors: []}
+          inventory_hash[item][:vendors] << v
         end
       end
     end
+    # sorted = inventory_hash.each do |item|
+    #   item[:vendors].sort!
+    # end
     inventory_hash
   end
 
@@ -44,7 +49,6 @@ class Market
     items = []
     @vendors.each do |vendor|
       vendor.inventory.each do |item, num_in_stock|
-        binding.pry
         array << item if vendors_that_sell(item).count > 1 && total_inventory[item][:quantity] > 50
       end
     end

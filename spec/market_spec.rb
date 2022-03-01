@@ -64,7 +64,7 @@ RSpec.describe Market do
     expect(@vendor3.potential_revenue).to eq(48.75)
   end
 
-  xit "returns total alphabetically sorted hash of total inventory" do
+  it "returns total alphabetically sorted hash of total inventory" do
     @vendor3.stock(@item3, 10)
     @market.add_vendor(@vendor1)
     @market.add_vendor(@vendor2)
@@ -98,7 +98,7 @@ RSpec.describe Market do
     expect(@market.overstocked_items).to eq(@item1)
   end
 
-  it "sorts items alphabetically" do
+  xit "sorts items alphabetically" do
     @vendor3.stock(@item3, 10)
     @market.add_vendor(@vendor1)
     @market.add_vendor(@vendor2)
