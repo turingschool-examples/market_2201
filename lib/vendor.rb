@@ -13,4 +13,12 @@ class Vendor
   def stock(item, quantity)
     @inventory[item] += quantity
   end
+
+  def potential_revenue
+    prev = []
+    @inventory.each do |item|
+      prev << (item[0].info[:price].gsub(/[^\d\.]/, '').to_f) * item[1]
+    end
+    prev.sum
+  end
 end
