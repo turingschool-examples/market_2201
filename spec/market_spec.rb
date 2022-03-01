@@ -37,4 +37,9 @@ RSpec.describe Market do
   it "reads vendor names" do
     expect(market.vendor_names).to eq(["Rocky Mountain Fresh", "Ba-Nom-a-Nom", "Palisade Peach Shack"])
   end
+
+  it "gets vendors that sell specific item" do
+    expected = market.vendors_that_sell(item1)
+    expect(expected).to eq([vendor1, vendor3])
+  end
 end
