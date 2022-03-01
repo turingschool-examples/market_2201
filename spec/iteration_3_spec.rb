@@ -26,5 +26,9 @@ RSpec.describe 'Iteration 3' do
     expect(market.total_inventory[item4][:quantity]).to eq(50)
     expect(market.total_inventory[item1][:vendors]).to eq([vendor1, vendor3])
   end
+
+  it 'Finds overstocked items' do
+    expect(market.overstocked_items).to eq([item1])
+  end
 end
 

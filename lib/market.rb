@@ -41,4 +41,12 @@ class Market
     return market_inventory
   end
 
+  def overstocked_items
+    overstocked_inv = total_inventory.find_all {|item| item[1][:quantity] > 50 && item[1][:vendors].count > 1}
+    overstocked_items = []
+    overstocked_inv.each do |inv| 
+      overstocked_items << inv[0] 
+    end
+    return overstocked_items
+  end
 end
