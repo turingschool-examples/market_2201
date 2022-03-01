@@ -15,15 +15,11 @@ RSpec.describe Item do
     end
     it "has a name" do
       expect(@item1.name).to eq('Peach')
+      expect(@item2.name).to eq('Tomato')
     end
-    #  item1 = Item.new({name: 'Peach', price: "$0.75"})
-    # #=> #<Item:0x007f9c56740d48...>
-    #
-    #  item2 = Item.new({name: 'Tomato', price: '$0.50'})
-    # #=> #<Item:0x007f9c565c0ce8...>
-    #
-    #  item2.name
-    # #=> "Tomato"s
+    it "has a price" do
+      expect(@item2.price).to eq(0.5)
+    end
 
   end
 
