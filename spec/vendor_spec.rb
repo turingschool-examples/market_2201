@@ -14,5 +14,14 @@ RSpec.describe Vendor do
     it 'has an empty inventory' do
       expect(vendor.inventory).to eq({})
     end
+
+    it 'can check stock of an item' do
+      expect(vendor.check_stock(item1)).to eq(0)
+    end
+
+    xit 'can stock an item' do
+      vendor.stock(item1, 30)
+      expect(vendor.check_stock(item1)).to eq(0)
+    end
   end
 end
