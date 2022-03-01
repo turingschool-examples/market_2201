@@ -13,7 +13,7 @@ RSpec.describe Vendor do
     end
 
     it "has a name" do
-
+      expect(@vendor.name).to eq("Rocky Mountain Fresh")
     end
 
   end
