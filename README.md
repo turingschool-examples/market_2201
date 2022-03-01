@@ -13,8 +13,8 @@
 
 ```markdown
 There are **4** Possible Points in Iteration 1:
-1. Item Creation - including all attr_readers
-2. Vendor Creation - including all attr_readers
+1. Item Creation - including all attr_readers x
+2. Vendor Creation - including all attr_readers 
 3. Vendor #check_stock
 4. Vendor #stock
 ```
