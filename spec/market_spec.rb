@@ -52,6 +52,4 @@ RSpec.describe Market do
     expect(@market.vendors_that_sell(@item4)).to eq([@vendor2])
   end
 
-
-
 end
