@@ -46,6 +46,7 @@ RSpec.describe Market do
       @vendor1.stock(@item2, 7)
       @vendor2.stock(@item2, 10)
       expect(@market.vendors_that_sell(@item2)).to eq([@vendor1, @vendor2])
+      expect(@market.vendors_that_sell(@item1)).to eq([@vendor1])
     end
-  end 
+  end
 end
