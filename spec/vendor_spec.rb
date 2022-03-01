@@ -20,4 +20,8 @@ RSpec.describe Vendor do
   it "has an empty hash 'inventory' by default" do
     expect(@vendor.inventory).to eq({})
   end
+
+  it "can check inventory stock for specific item" do
+    expect(@vendor.check_stock(@item1)).to eq(0)
+  end
 end
